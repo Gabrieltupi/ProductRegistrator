@@ -1,0 +1,45 @@
+package br.com.school.product.domain.product;
+
+import br.com.school.product.domain.exception.NotFoundException;
+import br.com.school.product.domain.kafka.product.EventType;
+import br.com.school.product.domain.kafka.product.ProductEvent;
+import br.com.school.product.domain.kafka.product.ProductProducer;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class ProductService {
+    private final ProductRepository repository;
+    private final ProductProducer producer;
+
+    public ProductEntity createProduct(ProductEntity entity) {
+        final var savedProduct = repository.save(entity);
+        producer.sendProduct(ProductEvent.create(savedProduct, EventType.CREATE));
+        return savedProduct;
+    }
+
+    public ProductEntity updateProduct(ProductEntity productFromBd, ProductEntity entity) {
+        productFromBd.update(entity.getSku(), entity.getName(), entity.getStock(), entity.getCost(), entity.getPrice());
+        final var savedProduct = repository.save(productFromBd);
+        producer.sendProduct(ProductEvent.create(savedProduct, EventType.UPDATE));
+        return savedProduct;
+    }
+
+    public ProductEntity getProductById(String id) {
+        return repository.findById(id).orElseThrow(() -> NotFoundException.create("Nao foi achado o produto com esse id".formatted(id)));
+    }
+
+    public void deleteProduct(String id) {
+        final var productFromBd = getProductById(id);
+        repository.delete(productFromBd);
+        producer.sendProduct(ProductEvent.create(productFromBd, EventType.DELETE));
+    }
+
+    public Page<ProductEntity> findAllProducts(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
+
+}
