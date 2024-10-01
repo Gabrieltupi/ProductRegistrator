@@ -1,6 +1,6 @@
 package br.com.school.product.domain.kafka.product;
 
-import br.com.school.product.domain.product.ProductEntity;
+import br.com.school.product.domain.product.entity.ProductEntity;
 
 import java.math.BigDecimal;
 

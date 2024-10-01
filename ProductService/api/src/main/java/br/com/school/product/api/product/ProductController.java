@@ -1,8 +1,11 @@
 package br.com.school.product.api.product;
 
 import br.com.school.product.domain.product.ProductService;
+import br.com.school.product.domain.product.dto.ProductCreateDto;
+import br.com.school.product.domain.product.dto.ProductDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,20 +24,17 @@ public class ProductController {
     @ApiResponse(responseCode = "201", description = "Realizado com sucesso")
     @ApiResponse(responseCode = "404", description = "Falha na operação")
     @PostMapping
-    public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest request) {
-        final var productEntity = request.toEntity();
-        final var saveProduct = service.createProduct(productEntity);
-        final var productResponse = ProductResponse.fromEntity(saveProduct);
-        return ResponseEntity.status(HttpStatus.CREATED).body(productResponse);
+    public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductCreateDto product) {
+        ProductDto productCreate = service.createProduct(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body((productCreate));
     }
 
     @Operation(summary = "Buscar produto pelo id")
     @ApiResponse(responseCode = "201", description = "Realizado com sucesso")
     @ApiResponse(responseCode = "404", description = "Falha na operação")
     @GetMapping("/{id}")
-    public ResponseEntity<ProductResponse> getById(@PathVariable String id) {
-        final var product = service.getProductById(id);
-        final var response = ProductResponse.fromEntity(product);
+    public ResponseEntity<ProductDto> getById(@PathVariable String id) {
+        final var response = service.getProductById(id);
         return ResponseEntity.ok(response);
     }
 
@@ -42,31 +42,26 @@ public class ProductController {
     @ApiResponse(responseCode = "201", description = "Realizado com sucesso")
     @ApiResponse(responseCode = "404", description = "Falha na operação")
     @PutMapping("/{id}")
-    public ResponseEntity<ProductResponse> updateProduct(@PathVariable String id, @RequestBody ProductRequest request) {
-        final var productFromBd = service.getProductById(id);
-        final var productToUpdate = request.toEntity(id);
-        final var saveProduct = service.updateProduct(productFromBd, productToUpdate);
-        final var productResponse = ProductResponse.fromEntity(saveProduct);
-        return ResponseEntity.status(HttpStatus.CREATED).body(productResponse);
+    public ResponseEntity<ProductDto> updateProduct(@PathVariable String id, @RequestBody ProductCreateDto updateProduct) {
+        ProductDto productDto = service.updateProduct(id, updateProduct);
+        return ResponseEntity.status(HttpStatus.OK).body(productDto);
     }
 
     @Operation(summary = "Busca paginada de produtos ")
     @ApiResponse(responseCode = "201", description = "Realizado com sucesso")
     @ApiResponse(responseCode = "404", description = "Falha na operação")
     @GetMapping
-    public ResponseEntity<Page<ProductResponse>> getAllProducts(Pageable pageable) {
+    public ResponseEntity<Page<ProductDto>> getAllProducts(Pageable pageable) {
         final var products = service.findAllProducts(pageable);
-        final var responsePage = products.map(ProductResponse::fromEntity);
-        return ResponseEntity.ok(responsePage);
+        return ResponseEntity.ok(products);
     }
 
     @Operation(summary = "Deletar produto atraves do id")
     @ApiResponse(responseCode = "201", description = "Realizado com sucesso")
     @ApiResponse(responseCode = "404", description = "Falha na operação")
     @DeleteMapping("/{id}")
-    public ResponseEntity<ProductResponse> deleteById(@PathVariable String id) {
+    public ResponseEntity<ProductDto> deleteById(@PathVariable String id) {
         service.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
-
 }

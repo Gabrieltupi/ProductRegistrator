@@ -1,6 +1,7 @@
 package br.com.school.product.domain.product;
 
 import br.com.school.product.domain.exception.NotificationException;
+import br.com.school.product.domain.product.entity.ProductEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
