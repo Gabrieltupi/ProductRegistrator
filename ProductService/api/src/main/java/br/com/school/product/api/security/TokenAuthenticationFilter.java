@@ -1,4 +1,4 @@
-package br.com.school.product.domain.security;
+package br.com.school.product.api.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

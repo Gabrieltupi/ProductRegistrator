@@ -1,4 +1,4 @@
-package br.com.school.product.domain.security.criadordesenha;
+package br.com.school.product.api.security.criadordesenha;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

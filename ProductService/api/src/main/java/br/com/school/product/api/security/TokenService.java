@@ -1,4 +1,4 @@
-package br.com.school.product.domain.security;
+package br.com.school.product.api.security;
 
 import br.com.school.product.domain.product.UsuarioService;
 import br.com.school.product.domain.product.entity.UsuarioEntity;

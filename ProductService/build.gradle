@@ -64,7 +64,9 @@ subprojects {
         runtimeOnly 'com.vlkan.log4j2:log4j2-logstash-layout:1.0.2'
 
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
+//        implementation 'io.springfox:springfox-boot-starter:3.0.0'
+        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+        implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
         implementation 'org.springframework.boot:spring-boot-starter-security'
 
         implementation 'io.jsonwebtoken:jjwt-api:0.11.5'

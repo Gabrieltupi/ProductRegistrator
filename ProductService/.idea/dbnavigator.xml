@@ -18,6 +18,7 @@
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="66d796f9-a738-44cf-adbc-18bd53d817ca">
       <console name="Connection" type="STANDARD" schema="product_db" session="Pool"><![CDATA[SELECT * FROM usuario;]]></console>
+      <console name="Connection 1" type="STANDARD" schema="product_db" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -265,6 +266,7 @@
           <content-type name="Java" enabled="true" />
           <content-type name="SQL" enabled="true" />
           <content-type name="PL/SQL" enabled="true" />
+          <content-type name="JPA QL" enabled="true" />
           <content-type name="JavaScript" enabled="true" />
           <content-type name="JSON" enabled="true" />
           <content-type name="JSON5" enabled="true" />

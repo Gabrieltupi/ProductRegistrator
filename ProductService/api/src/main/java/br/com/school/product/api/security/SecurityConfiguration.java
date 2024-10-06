@@ -1,4 +1,4 @@
-package br.com.school.product.domain.security;
+package br.com.school.product.api.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,7 @@ public class SecurityConfiguration {
                 .cors(cors -> cors.disable())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/auth", "/auth/cadastro", "/").permitAll()
+                        .requestMatchers("/auth", "/auth/cadastro", "/", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-resources/**").permitAll() // Ajuste para Swagger
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new TokenAuthenticationFilter(tokenService), UsernamePasswordAuthenticationFilter.class);
