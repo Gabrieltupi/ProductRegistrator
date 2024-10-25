@@ -1,6 +1,6 @@
-package br.com.school.product.domain.product;
+package br.com.school.product.domain.repository;
 
-import br.com.school.product.domain.product.entity.UsuarioEntity;
+import br.com.school.product.domain.entity.UsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

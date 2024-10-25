@@ -1,4 +1,4 @@
-package br.com.school.product.domain.product.dto;
+package br.com.school.product.domain.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package br.com.school.product.api.security;
 
-import br.com.school.product.domain.product.UsuarioService;
-import br.com.school.product.domain.product.entity.UsuarioEntity;
+import br.com.school.product.domain.entity.UsuarioEntity;
+import br.com.school.product.domain.service.UsuarioService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

@@ -1,7 +1,7 @@
 package br.com.school.product.api.security;
 
-import br.com.school.product.domain.product.UsuarioService;
-import br.com.school.product.domain.product.entity.UsuarioEntity;
+import br.com.school.product.domain.entity.UsuarioEntity;
+import br.com.school.product.domain.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;

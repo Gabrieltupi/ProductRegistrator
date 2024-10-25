@@ -1,4 +1,4 @@
-package br.com.school.product.domain.product.entity;
+package br.com.school.product.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

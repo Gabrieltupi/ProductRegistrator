@@ -1,4 +1,4 @@
-package br.com.school.product.domain.product.entity;
+package br.com.school.product.domain.entity.product;
 
 import br.com.school.product.domain.exception.NotificationException;
 import br.com.school.product.domain.validation.Error;

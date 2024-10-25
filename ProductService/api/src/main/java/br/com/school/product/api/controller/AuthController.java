@@ -1,11 +1,11 @@
-package br.com.school.product.api.product;
+package br.com.school.product.api.controller;
 
 import br.com.school.product.api.security.TokenService;
+import br.com.school.product.domain.dto.LoginDto;
+import br.com.school.product.domain.entity.UsuarioEntity;
 import br.com.school.product.domain.exception.NotFoundException;
 import br.com.school.product.domain.exception.NotificationException;
-import br.com.school.product.domain.product.UsuarioService;
-import br.com.school.product.domain.product.dto.LoginDto;
-import br.com.school.product.domain.product.entity.UsuarioEntity;
+import br.com.school.product.domain.service.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

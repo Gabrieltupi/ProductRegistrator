@@ -1,6 +1,7 @@
-package br.com.school.product.domain.product;
+package br.com.school.product.domain.service;
 
-import br.com.school.product.domain.product.entity.UsuarioEntity;
+import br.com.school.product.domain.entity.UsuarioEntity;
+import br.com.school.product.domain.repository.UsuarioRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

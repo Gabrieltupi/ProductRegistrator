@@ -1,13 +1,14 @@
-package br.com.school.product.domain.product;
+package br.com.school.product.domain.service;
 
+import br.com.school.product.domain.dto.ProductCreateDto;
+import br.com.school.product.domain.dto.ProductDto;
+import br.com.school.product.domain.entity.product.ProductEntity;
+import br.com.school.product.domain.entity.product.ProductFactory;
 import br.com.school.product.domain.exception.NotFoundException;
 import br.com.school.product.domain.kafka.product.EventType;
 import br.com.school.product.domain.kafka.product.ProductEvent;
 import br.com.school.product.domain.kafka.product.ProductProducer;
-import br.com.school.product.domain.product.dto.ProductCreateDto;
-import br.com.school.product.domain.product.dto.ProductDto;
-import br.com.school.product.domain.product.entity.ProductEntity;
-import br.com.school.product.domain.product.entity.ProductFactory;
+import br.com.school.product.domain.repository.ProductRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

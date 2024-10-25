@@ -1,8 +1,8 @@
-package br.com.school.product.api.product;
+package br.com.school.product.api.controller;
 
-import br.com.school.product.domain.product.ProductService;
-import br.com.school.product.domain.product.dto.ProductCreateDto;
-import br.com.school.product.domain.product.dto.ProductDto;
+import br.com.school.product.domain.dto.ProductCreateDto;
+import br.com.school.product.domain.dto.ProductDto;
+import br.com.school.product.domain.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

@@ -1,4 +1,4 @@
-package br.com.school.product.domain.product.entity;
+package br.com.school.product.domain.entity.product;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
