@@ -1,6 +1,6 @@
 package br.com.school.product.api.security;
 
-import br.com.school.product.domain.entity.UsuarioEntity;
+import br.com.school.product.domain.entity.UserEntity;
 import br.com.school.product.domain.service.UsuarioService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -29,7 +29,7 @@ public class TokenService {
     private String secret;
     private final UsuarioService usuarioService;
 
-    public String generateToken(UsuarioEntity usuarioEntity) {
+    public String generateToken(UserEntity usuarioEntity) {
         Date now = new Date();
         Date exp = new Date(now.getTime() + Long.parseLong(expiration));
 

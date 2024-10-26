@@ -1,6 +1,6 @@
 package br.com.school.product.domain.entity;
 
 
-public class boleto {
+public class BoletoEntity {
 
 }

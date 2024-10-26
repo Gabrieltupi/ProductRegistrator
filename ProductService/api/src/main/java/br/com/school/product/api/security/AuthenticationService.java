@@ -1,6 +1,6 @@
 package br.com.school.product.api.security;
 
-import br.com.school.product.domain.entity.UsuarioEntity;
+import br.com.school.product.domain.entity.UserEntity;
 import br.com.school.product.domain.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ public class AuthenticationService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.debug("authenticationService");
-        Optional<UsuarioEntity> usuarioEntityOptional = usuarioService.findByLogin(username);
+        Optional<UserEntity> usuarioEntityOptional = usuarioService.findByLogin(username);
         if (usuarioEntityOptional.isPresent()) {
             return usuarioEntityOptional.get();
         }

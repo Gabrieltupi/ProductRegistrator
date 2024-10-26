@@ -1,6 +1,6 @@
 package br.com.school.product.domain.service;
 
-import br.com.school.product.domain.entity.UsuarioEntity;
+import br.com.school.product.domain.entity.UserEntity;
 import br.com.school.product.domain.repository.UsuarioRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -14,16 +14,16 @@ public class UsuarioService {
     private final UsuarioRepository repository;
     private final ObjectMapper objectMapper;
 
-    public Optional<UsuarioEntity> findByLoginAndSenha(String login, String senha) {
+    public Optional<UserEntity> findByLoginAndSenha(String login, String senha) {
         return repository.findByLoginAndSenha(login, senha);
     }
 
-    public Optional<UsuarioEntity> findByLogin(String username) {
+    public Optional<UserEntity> findByLogin(String username) {
         return repository.findByLogin(username);
     }
 
-    public void cadastrar(UsuarioEntity login) {
-        UsuarioEntity usuario = objectMapper.convertValue(login, UsuarioEntity.class);
+    public void cadastrar(UserEntity login) {
+        UserEntity usuario = objectMapper.convertValue(login, UserEntity.class);
         repository.save(usuario);
     }
 

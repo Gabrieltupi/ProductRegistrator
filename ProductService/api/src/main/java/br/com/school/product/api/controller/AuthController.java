@@ -2,7 +2,7 @@ package br.com.school.product.api.controller;
 
 import br.com.school.product.api.security.TokenService;
 import br.com.school.product.domain.dto.LoginDto;
-import br.com.school.product.domain.entity.UsuarioEntity;
+import br.com.school.product.domain.entity.UserEntity;
 import br.com.school.product.domain.exception.NotFoundException;
 import br.com.school.product.domain.exception.NotificationException;
 import br.com.school.product.domain.service.UsuarioService;
@@ -42,7 +42,7 @@ public class AuthController {
                 authenticationManager.authenticate(
                         usernamePasswordAuthenticationToken);
 
-        UsuarioEntity usuarioValidado = (UsuarioEntity) authentication.getPrincipal();
+        UserEntity usuarioValidado = (UserEntity) authentication.getPrincipal();
 
         return tokenService.generateToken(usuarioValidado);
     }
@@ -52,7 +52,7 @@ public class AuthController {
     public ResponseEntity<String> cadastro(@RequestBody @Valid LoginDto usuario) throws NotificationException {
         String cript = passwordEncoder.encode(usuario.getSenha());
 
-        UsuarioEntity usuarioEntity = new UsuarioEntity();
+        UserEntity usuarioEntity = new UserEntity();
         usuarioEntity.setSenha(cript);
         usuarioEntity.setLogin(usuario.getLogin());
         usuarioService.cadastrar(usuarioEntity);
