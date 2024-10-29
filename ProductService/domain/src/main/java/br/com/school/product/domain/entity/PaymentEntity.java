@@ -12,27 +12,27 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Table(name = "pagemento")
-public class PagamentoEntity {
+public class PaymentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pagamento")
-    private Integer idPagamento;
+    private Integer idPayment;
 
     @Column(name = "pedido_id")
-    private String pedido_id;
+    private String orderId;
 
     @Column(name = "metodo_pagamento")
-    private Enum metodoPagamento; // enum desse tambem (pix, boleto)
+    private Enum paymentMethod; // enum desse tambem (pix, boleto)
 
     @Column(name = "status_pagamento")
-    private Enum statusPagamento;
+    private Enum paymentStatus;
 
     @Column(name = "data_pagamento")
-    private LocalDateTime dataPagamento;
+    private LocalDateTime paymentDate;
 
     @Column(name = "valor_pago")
-    private BigDecimal valorPago;
+    private BigDecimal totalPaid;
 
     @Column(name = "pix_EMV")
     private String pixEMV;
@@ -41,8 +41,8 @@ public class PagamentoEntity {
     private String qrCode;
 
     @Column(name = "chave_pix")
-    private String chavePix;
+    private String keyPix;
 
     @Column(name = "comprovante_pagemento")
-    private String comprovantePagemento;
+    private String proofPayment;
 }

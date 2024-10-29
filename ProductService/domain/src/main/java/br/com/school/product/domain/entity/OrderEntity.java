@@ -19,28 +19,28 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pedido")
-    private String idPedido;
+    private Integer idOrder;
 
     @Column(name = "usuario_id")
-    private String usuarioId; //possivelmente chave estrangeira d euma tabela a outra
+    private String userId; //possivelmente chave estrangeira d euma tabela a outra
 
     @Column(name = "data_criacao")
-    private LocalDateTime dataCriacao;
+    private LocalDateTime creationDate;
 
     @Column(name = "status")
     private Enum status; // criar enum
 
     @Column(name = "valor_total")
-    private BigDecimal valorTotal;
+    private BigDecimal totalPrice;
 
     @Column(name = "metodo_pagamento")
-    private Enum metodoPagamento; // enum desse tambem (pix, boleto)
+    private Enum paymentMethod; // enum desse tambem (pix, boleto)
 
     @Column(name = "produtos")
-    private List<ProductEntity> produtos; //verificar se o dto de produto ou a entidade
+    private List<ProductEntity> products; //verificar se o dto de produto ou a entidade
 
     @Column(name = "data_expiracao")
-    private LocalDateTime dataExpiracao;
+    private LocalDateTime expirationDate;
 
     @Column(name = "qr_code")
     private String qrCode;
